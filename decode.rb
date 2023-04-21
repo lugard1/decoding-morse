@@ -26,3 +26,17 @@
   '-.--' => 'Y',
   '--..' => 'Z'
 }
+
+def decode_char(morse)
+  @morse_code[morse]
+end
+
+def decode_word(word)
+  word.split.map { |char| decode_char(char) }.join
+end
+
+def decode(message)
+  message.split('   ').map { |word| decode_word(word) }.join(' ')
+end
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
